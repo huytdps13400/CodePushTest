@@ -8,8 +8,9 @@
  * @format
  */
 
-import React, {type PropsWithChildren} from 'react';
+import React, {useEffect, type PropsWithChildren} from 'react';
 import {
+  Platform,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -27,12 +28,25 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import {initEnv} from './src/Config/ENV';
+import CodePush from 'react-native-code-push';
+
+let codePushOption = {checkFrequency: CodePush.CheckFrequency.MANUAL};
 
 const Section: React.FC<
   PropsWithChildren<{
     title: string;
   }>
 > = ({children, title}) => {
+  useEffect(() => {
+    CodePush.sync({
+      deploymentKey:
+        Platform.OS === 'ios'
+          ? 'DUDEjbWonJ06cl0zDrreEBLLIgfQbK9J-KaN2'
+          : 'M5ioyJUbCb6Qaj0QpTf-4cUI-2xiJHe16W8DJ',
+      updateDialog: true,
+      installMode: CodePush.InstallMode.IMMEDIATE,
+    });
+  }, []);
   const isDarkMode = useColorScheme() === 'dark';
   return (
     <View style={styles.sectionContainer}>
@@ -75,7 +89,7 @@ const App = () => {
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
         <Header />
-        <Text style={{height: 100, color: 'red'}}>{initEnv}22</Text>
+        <Text style={{height: 100, color: 'red'}}>{initEnv}HUy01</Text>
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
@@ -119,4 +133,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default CodePush(codePushOption)(App);

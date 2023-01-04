@@ -1,1 +1,8 @@
 APP_ENV=Prod
+API_URL=https://jsonplaceholder.typicode.com/
+APP_NAME=codePushTest
+VERSION_CODE=1
+VERSION_NAME=1.0.0
+BUNDLE_IDENTIFIER=org.reactjs.native.example.codePushTest
+CODE_PUSH_KEY_ANDROID=9Etqo89El1ZMYTMpkyRZrnvbt6Y38OsidnrPK
+CODE_PUSH_KEY_IOS=WfPVx398GN0PGeyW4tRJ1zCh8W1Qr1PjXGJef
