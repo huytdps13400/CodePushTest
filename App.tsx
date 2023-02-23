@@ -78,7 +78,6 @@ const App = () => {
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
-  console.log({hehe: initEnv});
 
   return (
     <SafeAreaView style={backgroundStyle}>
