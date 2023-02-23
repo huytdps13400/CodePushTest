@@ -79,6 +79,7 @@ const App = () => {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
   console.log({hehe: initEnv});
+
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
@@ -89,7 +90,7 @@ const App = () => {
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
         <Header />
-        <Text style={{height: 100, color: 'red'}}>{initEnv}HUy01</Text>
+        <Text style={styles.textENV}>{initEnv}HUy01</Text>
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
@@ -131,6 +132,7 @@ const styles = StyleSheet.create({
   highlight: {
     fontWeight: '700',
   },
+  textENV: {height: 100, color: 'red'},
 });
 
 export default CodePush(codePushOption)(App);
